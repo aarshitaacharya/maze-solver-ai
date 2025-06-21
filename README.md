@@ -17,6 +17,9 @@ This project implements and visualizes three fundamental AI search algorithms us
 - **Space Complexity**: O(V) for the queue
 - **Best For**: Unweighted graphs, guaranteed shortest path
 
+![BFS](bfs.png)
+
+
 ### 2. **Depth-First Search (DFS)**  
 - **Strategy**: Explores as far as possible along each branch before backtracking
 - **Guarantee**: Finds a solution but not necessarily optimal
@@ -24,12 +27,16 @@ This project implements and visualizes three fundamental AI search algorithms us
 - **Space Complexity**: O(h) where h = maximum depth
 - **Best For**: Memory-efficient exploration, maze generation
 
+![DFS](dfs.png)
+
 ### 3. **A* (A-Star) Algorithm** 
 - **Strategy**: Uses heuristics to guide search toward the goal intelligently
 - **Guarantee**: Optimal if heuristic is admissible (never overestimates)
 - **Time Complexity**: O(b^d) where b = branching factor, d = depth
 - **Space Complexity**: O(b^d)
 - **Best For**: Optimal pathfinding with prior knowledge, game AI, robotics
+
+![A*](astar.png)
 
 ## Features
 
