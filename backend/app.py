@@ -31,6 +31,10 @@ def solve():
         "visited": visited
     })
 
+@app.route("/")
+def home():
+    return "backend is live"
+
 @app.route("/api/maze")
 def get_maze():
     name = request.args.get("name", "maze1")

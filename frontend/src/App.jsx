@@ -23,7 +23,7 @@ function App() {
       })
 
       const data = await response.json();
-      const mazeResponse = await fetch(`https//maze-solver-ai.onrender.com/api/maze?name=${mazeName}`);
+      const mazeResponse = await fetch(`https://maze-solver-ai.onrender.com/api/maze?name=${mazeName}`);
       const mazeJson = await mazeResponse.json()
 
       setMazeData({
