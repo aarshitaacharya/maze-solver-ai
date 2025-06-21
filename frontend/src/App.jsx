@@ -43,7 +43,7 @@ function App() {
     return (
       <div className="app-container">
         <div className="app-header">
-          <h1 className="app-title">🧩 Maze Solver Pro</h1>
+          <h1 className="app-title">🧩 Maze Solver - Aarshita</h1>
           <p className="app-subtitle">Visualize pathfinding algorithms in action</p>
         </div>
         
@@ -58,9 +58,9 @@ function App() {
                 value={mazeName} 
                 onChange={e => setMazeName(e.target.value)}
               >
-                <option value="maze1">🏰 Castle Maze</option>
-                <option value="maze2">🌲 Forest Maze</option>
-                <option value="maze3">🏔️ Mountain Maze</option>
+                <option value="maze1">Castle Maze</option>
+                <option value="maze2">Forest Maze</option>
+                <option value="maze3">Mountain Maze</option>
               </select>
             </div>
 
@@ -73,9 +73,9 @@ function App() {
                 value={algorithm} 
                 onChange={e => setAlgorithm(e.target.value)}
               >
-                <option value="bfs">🌊 Breadth-First Search</option>
-                <option value="dfs">🌲 Depth-First Search</option>
-                <option value="astar">⭐ A* Algorithm</option>
+                <option value="bfs">Breadth-First Search</option>
+                <option value="dfs">Depth-First Search</option>
+                <option value="astar">A* Algorithm</option>
               </select>
             </div>
 
@@ -85,7 +85,7 @@ function App() {
                 disabled={solving}
                 className="solve-button"
               >
-                {solving ? "🔄 Solving..." : "🚀 Solve Maze"}
+                {solving ? "Solving..." : "Solve Maze"}
               </button>
             </div>
           </div>
