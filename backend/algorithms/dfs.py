@@ -9,6 +9,7 @@ def dfs(maze):
                 goal = (r,c)
     
     visited = set()
+    visited_order = []
     came_from = {}
     found = [False]
     
@@ -20,6 +21,7 @@ def dfs(maze):
             return
         
         visited.add(current)
+        visited_order.append(current)
         for dr, dc in directions:
             nr, nc = current[0] + dr, current[1] + dc
             neighbor = (nr, nc)
@@ -33,7 +35,7 @@ def dfs(maze):
     dfs_visit(start)
 
     if not found[0]:
-        return []
+        return [], visited_order
     
     path = []
     node = goal
@@ -41,7 +43,7 @@ def dfs(maze):
         path.append(node)
         node = came_from.get(node)
         if node is None:
-            return []
+            return [], visited_order
     path.append(start)
     path.reverse()
-    return path
+    return path, visited_order

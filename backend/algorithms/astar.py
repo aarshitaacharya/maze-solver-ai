@@ -19,6 +19,7 @@ def astar(maze):
     came_from ={}
     g_score = {start: 0}
     visited = set()
+    visited_order = []
 
     directions = [(-1,0), (1,0), (0,-1), (0,1)]
 
@@ -32,6 +33,7 @@ def astar(maze):
             continue
         
         visited.add(current)
+        visited_order.append(current)
 
         for dr, dc in directions:
             nr, nc = current[0] + dr, current[1] + dc
@@ -54,8 +56,8 @@ def astar(maze):
         path.append(node)
         node = came_from.get(node)
         if node is None:
-            return []
+            return [], visited_order
     
     path.append(start)
     path.reverse()
-    return path
+    return path, visited_order

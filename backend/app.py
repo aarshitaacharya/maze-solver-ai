@@ -2,6 +2,8 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 from utils.maze_loader import load_maze
 from algorithms.bfs import bfs
+from algorithms.dfs import dfs
+from algorithms.astar import astar
 
 app = Flask(__name__)
 CORS(app)
@@ -15,10 +17,18 @@ def solve():
     maze = load_maze(f"mazes/{maze_id}.txt")
 
     if algorithm == "bfs":
-        result = bfs(maze)
+        path, visited = bfs(maze)
+    elif algorithm == "dfs":
+        path, visited = dfs(maze)
+    elif algorithm == "astar":
+        path, visited = astar(maze)
     else:
-        return jsonify({"error": "Unsupported Algorithm"}), 400
-    return jsonify(result)
+        return jsonify({"error": "Unknown algorithm"}), 400
+
+    return jsonify({
+        "path": path,
+        "visited": visited
+    })
 
 @app.route("/api/maze")
 def get_maze():

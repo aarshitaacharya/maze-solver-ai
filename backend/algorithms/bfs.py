@@ -45,14 +45,8 @@ def bfs(maze):
         path.append(node)
         node = came_from.get(node)
         if node is None:
-            return {
-                "visited": visited_order,
-                "path": []
-            }
+            return path, list(visited_order)
     
     path.append(start)
     path.reverse()
-    return {
-        "visited": visited_order,
-        "path": path
-    }
+    return path, list(visited_order)

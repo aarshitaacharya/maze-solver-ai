@@ -5,7 +5,9 @@ function MazeGrid({ maze, visited, path }) {
     const [grid, setGrid] = useState([]);
 
     useEffect(() => {
-        const copy = maze.map(row => [...row]);
+        if (!maze || maze.length === 0) return;
+const copy = maze.map(row => [...row]);
+
         let i = 0;
         let visitInterval;
         let pathInterval;
@@ -13,7 +15,7 @@ function MazeGrid({ maze, visited, path }) {
         visitInterval = setInterval(() => {
             if (i < visited.length) {
             const [r, c] = visited[i];
-            if (copy[r][c] !== 'S' && copy[r][c] !== 'G') copy[r][c] = 'v';
+            if (copy[r] && copy[r][c] !== undefined && copy[r][c] !== 'S' && copy[r][c] !== 'G') copy[r][c] = 'v';
             setGrid(copy.map(row => [...row]));
             i++;
             } else {
@@ -23,7 +25,7 @@ function MazeGrid({ maze, visited, path }) {
             pathInterval = setInterval(() => {
                 if (j < path.length) {
                 const [r, c] = path[j];
-                if (copy[r][c] !== 'S' && copy[r][c] !== 'G') copy[r][c] = '*';
+                if (copy[r] && copy[r][c] !== undefined && copy[r][c] !== 'S' && copy[r][c] !== 'G') copy[r][c] = '*';
                 setGrid(copy.map(row => [...row]));
                 j++;
                 } else {
