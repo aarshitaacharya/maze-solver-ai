@@ -20,5 +20,12 @@ def solve():
         return jsonify({"error": "Unsupported Algorithm"}), 400
     return jsonify(result)
 
+@app.route("/api/maze")
+def get_maze():
+    name = request.args.get("name", "maze1")
+    maze = load_maze(f"mazes/{name}.txt")
+
+    return jsonify({"maze": maze})
+
 if __name__ == "__main__":
     app.run(debug=True, port=5050)
