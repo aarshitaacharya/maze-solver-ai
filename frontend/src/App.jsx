@@ -11,7 +11,7 @@ function App() {
   const handleSolve = async () => {
     setSolving(true);
     try{
-      const response = await fetch("http://localhost:5050/api/solve", {
+      const response = await fetch("https://maze-solver-ai.onrender.com/api/solve", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -23,7 +23,7 @@ function App() {
       })
 
       const data = await response.json();
-      const mazeResponse = await fetch(`http://localhost:5050/api/maze?name=${mazeName}`);
+      const mazeResponse = await fetch(`https//maze-solver-ai.onrender.com/api/maze?name=${mazeName}`);
       const mazeJson = await mazeResponse.json()
 
       setMazeData({
