@@ -1,8 +1,10 @@
 from utils.maze_loader import load_maze
 from algorithms.bfs import bfs
+from algorithms.dfs import dfs
 
 maze = load_maze("./mazes/maze1.txt")
-path = bfs(maze)
+# path = bfs(maze)
+path = dfs(maze)
 
 for r, c in path:
     if maze[r][c] not in {'S', 'G'}:
