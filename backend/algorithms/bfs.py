@@ -1,7 +1,9 @@
 from collections import deque
+import copy
 
 def bfs(maze):
     rows, cols = len(maze), len(maze[0])
+    maze_copy = copy.deepcopy(maze)
 
     # first we need to find start and goal points
 
@@ -17,9 +19,12 @@ def bfs(maze):
     came_from = {}
 
     directions = [(-1,0), (1,0), (0, -1), (0, 1)]
+    visited_order = []
     
     while queue:
         current = queue.popleft()
+        visited_order.append(current)
+
         if current == goal:
             break
 
@@ -40,8 +45,14 @@ def bfs(maze):
         path.append(node)
         node = came_from.get(node)
         if node is None:
-            return []
+            return {
+                "visited": visited_order,
+                "path": []
+            }
     
     path.append(start)
     path.reverse()
-    return path
+    return {
+        "visited": visited_order,
+        "path": path
+    }
