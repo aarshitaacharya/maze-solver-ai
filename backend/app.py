@@ -4,6 +4,7 @@ from utils.maze_loader import load_maze
 from algorithms.bfs import bfs
 from algorithms.dfs import dfs
 from algorithms.astar import astar
+import os
 
 app = Flask(__name__)
 CORS(app)

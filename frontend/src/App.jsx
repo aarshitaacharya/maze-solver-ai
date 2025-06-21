@@ -51,7 +51,7 @@ function App() {
           <div className="controls-container">
             <div className="control-group">
               <label className="control-label">
-                🗺️ Choose Maze:
+                Choose Maze:
               </label>
               <select 
                 className="control-select" 
@@ -66,7 +66,7 @@ function App() {
 
             <div className="control-group">
               <label className="control-label">
-                🧠 Algorithm:
+                Algorithm:
               </label>
               <select 
                 className="control-select" 
